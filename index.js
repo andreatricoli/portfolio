@@ -1,27 +1,27 @@
-const headerHamburgerMenuIcon = document.querySelector(
-  '.header__hamburger-menu-icon'
+const navigationHamburgerMenuIcon = document.querySelector(
+  '.js-navigation__hamburger-menu-icon'
 );
-const headerMenu = document.querySelector('.header__menu');
+const navigationMenu = document.querySelector('.navigation__menu');
 
-let desktopMediaQuery = window.matchMedia('(min-width: 992px');
-let tabletMediaQuery = window.matchMedia('(min-width: 668px');
+let desktopMediaQuery = window.matchMedia('(min-width: 1024px');
+let tabletMediaQuery = window.matchMedia('(min-width: 768px');
 
 const desktopMediaQueryHandler = () => {
   if (desktopMediaQuery.matches) {
-    headerMenu.style.display = 'flex';
+    navigationMenu.style.display = 'flex';
   } else {
-    headerMenu.style.display = 'none';
+    navigationMenu.style.display = 'none';
   }
 };
 
 desktopMediaQuery.addEventListener('change', desktopMediaQueryHandler);
 
-headerHamburgerMenuIcon.addEventListener('click', e => {
-  if (headerMenu.style.display === 'flex') {
-    headerHamburgerMenuIcon.src = './assets/icons/at_hamburger_menu.svg';
-    headerMenu.style.display = 'none';
+navigationHamburgerMenuIcon.addEventListener('click', e => {
+  if (navigationMenu.style.display === 'flex') {
+    navigationHamburgerMenuIcon.src = './assets/icons/at_hamburger_menu.svg';
+    navigationMenu.style.display = 'none';
   } else {
-    headerHamburgerMenuIcon.src = './assets/icons/at_close.svg';
-    headerMenu.style.display = 'flex';
+    navigationHamburgerMenuIcon.src = './assets/icons/at_close.svg';
+    navigationMenu.style.display = 'flex';
   }
 });
