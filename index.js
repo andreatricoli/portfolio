@@ -1,27 +1,100 @@
 const navigationHamburgerMenuIcon = document.querySelector(
   '.js-navigation__hamburger-menu-icon'
 );
-const navigationMenu = document.querySelector('.navigation__menu');
+const navigationMenu = document.querySelector('.js-navigation__menu');
 
 let desktopMediaQuery = window.matchMedia('(min-width: 1024px');
-let tabletMediaQuery = window.matchMedia('(min-width: 768px');
+
+const openNavigationMenu = () => {
+  navigationHamburgerMenuIcon.src = './assets/icons/at_close.svg';
+  navigationMenu.classList.add('js-navigation__menu--open');
+};
+
+const closeNavigationMenu = () => {
+  navigationHamburgerMenuIcon.src = './assets/icons/at_hamburger_menu.svg';
+  navigationMenu.classList.remove('js-navigation__menu--open');
+};
 
 const desktopMediaQueryHandler = () => {
   if (desktopMediaQuery.matches) {
-    navigationMenu.style.display = 'flex';
-  } else {
-    navigationMenu.style.display = 'none';
+    closeNavigationMenu();
   }
 };
 
 desktopMediaQuery.addEventListener('change', desktopMediaQueryHandler);
 
 navigationHamburgerMenuIcon.addEventListener('click', e => {
-  if (navigationMenu.style.display === 'flex') {
-    navigationHamburgerMenuIcon.src = './assets/icons/at_hamburger_menu.svg';
-    navigationMenu.style.display = 'none';
+  if (navigationMenu.classList.contains('js-navigation__menu--open')) {
+    closeNavigationMenu();
   } else {
-    navigationHamburgerMenuIcon.src = './assets/icons/at_close.svg';
-    navigationMenu.style.display = 'flex';
+    openNavigationMenu();
   }
 });
+
+function setupTypewriter(t) {
+  var HTML = t.innerHTML;
+
+  t.innerHTML = '';
+
+  var cursorPosition = 0,
+    tag = '',
+    writingTag = false,
+    tagOpen = false,
+    typeSpeed = 100,
+    tempTypeSpeed = 0;
+
+  var type = function () {
+    if (writingTag === true) {
+      tag += HTML[cursorPosition];
+    }
+
+    if (HTML[cursorPosition] === '<') {
+      tempTypeSpeed = 0;
+      if (tagOpen) {
+        tagOpen = false;
+        writingTag = true;
+      } else {
+        tag = '';
+        tagOpen = true;
+        writingTag = true;
+        tag += HTML[cursorPosition];
+      }
+    }
+    if (!writingTag && tagOpen) {
+      tag.innerHTML += HTML[cursorPosition];
+    }
+    if (!writingTag && !tagOpen) {
+      if (HTML[cursorPosition] === ' ') {
+        tempTypeSpeed = 0;
+      } else {
+        tempTypeSpeed = Math.random() * typeSpeed + 50;
+      }
+      t.innerHTML += HTML[cursorPosition];
+    }
+    if (writingTag === true && HTML[cursorPosition] === '>') {
+      tempTypeSpeed = Math.random() * typeSpeed + 50;
+      writingTag = false;
+      if (tagOpen) {
+        var newSpan = document.createElement('span');
+        t.appendChild(newSpan);
+        newSpan.innerHTML = tag;
+        tag = newSpan.firstChild;
+      }
+    }
+
+    cursorPosition += 1;
+    if (cursorPosition < HTML.length - 1) {
+      setTimeout(type, tempTypeSpeed);
+    }
+  };
+
+  return {
+    type: type,
+  };
+}
+
+var typer = document.getElementById('typewriter');
+
+typewriter = setupTypewriter(typewriter);
+
+typewriter.type();
