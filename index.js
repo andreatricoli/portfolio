@@ -109,9 +109,13 @@ const observer = new IntersectionObserver(entries => {
     // If the element is visible
     if (entry.isIntersecting) {
       // Add the animation class
-      entry.target.classList.add('about__photo-animation');
+      entry.target.classList.add('fade-in-up-animation');
     }
   });
 });
 
+var timelineCards = document.querySelectorAll('.timeline__card');
+timelineCards.forEach(timelineCard => {
+  observer.observe(timelineCard);
+});
 observer.observe(document.querySelector('.about__photo'));

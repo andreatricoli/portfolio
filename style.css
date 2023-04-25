@@ -32,7 +32,7 @@
   --atDesktopPageMinWidth: 1024px;
 
   /* ANIMATION VARIABLES*/
-  --atAnimationDuration: 1s;
+  --atAnimationDuration: 2s;
 }
 
 /* FONTS */
@@ -236,7 +236,7 @@ button {
   border-radius: 50%;
   box-shadow: var(--atBoxShadow);
   margin-top: 5rem;
-  animation: bounceInUp var(--atAnimationDuration), float 5s ease 3s infinite;
+  animation: bounceInUp 1s, float 5s ease 3s infinite;
 }
 
 .home__presentation {
@@ -244,7 +244,7 @@ button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  animation: bounceInLeft var(--atAnimationDuration);
+  animation: bounceInLeft 1s;
 }
 
 .home__presentation-main {
@@ -280,7 +280,7 @@ button {
 
 .home__down-arrow-icon {
   filter: var(--atFilterBlue);
-  animation: bounce 2s infinite;
+  animation: bounce 3s infinite;
 }
 
 /* ABOUT */
@@ -305,12 +305,6 @@ button {
 
 .about__photo:hover {
   transform: scale(1.1);
-}
-
-.about__photo-animation {
-  animation-name: fadeInUp;
-  animation-duration: var(--atAnimationDuration);
-  animation-iteration-count: 1;
 }
 
 .about__description::first-line {
@@ -342,7 +336,7 @@ button {
 
 .experiences__content {
   display: grid;
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
   gap: 3rem;
 }
@@ -377,6 +371,14 @@ button {
   bottom: -0.45rem;
   border-width: 5px 0 5px 5px;
   border-radius: 50px 0 0 50px;
+}
+
+/* CV */
+
+.cv__download-icon {
+  filter: var(--atFilterBlack);
+  height: 4rem;
+  display: block;
 }
 
 /* Setting the top and bottom to "-5px" because earlier it was out of a pixel in mobile devices */

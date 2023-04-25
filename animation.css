@@ -1,4 +1,9 @@
 /* ANIMATION */
+.fade-in-up-animation {
+  animation-name: fadeInUp;
+  animation-duration: var(--atAnimationDuration);
+  animation-iteration-count: 1;
+}
 
 /* BOUNCE */
 @keyframes bounce {
