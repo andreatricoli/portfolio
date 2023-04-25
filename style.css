@@ -1,3 +1,5 @@
+@import url('./animation.css');
+
 :root {
   /* COLORS */
   --atWhite: #eeeeee;
@@ -28,6 +30,9 @@
   --atMobilePageMinWidth: calc(100% - 20px);
   --atTabletPageMinWidth: 668px;
   --atDesktopPageMinWidth: 1024px;
+
+  /* ANIMATION VARIABLES*/
+  --atAnimationDuration: 1s;
 }
 
 /* FONTS */
@@ -107,7 +112,7 @@ button {
 
 .theme--blue {
   background-color: var(--atBlue);
-  color: var(--atWhite);
+  color: var(--atBlack);
 }
 
 .theme--grey {
@@ -203,7 +208,6 @@ button {
   align-items: center;
   justify-content: center;
   gap: 3rem;
-  animation: opacityUp 0.25s;
 }
 
 .navigation__hamburger-menu-icon {
@@ -232,23 +236,15 @@ button {
   border-radius: 50%;
   box-shadow: var(--atBoxShadow);
   margin-top: 5rem;
-  animation: slideTop 1s ease-out, float 5s ease 3s infinite;
-  /* -webkit-animation: float 5s ease infinite;
-  -moz-animation: float 5s ease infinite;
-  -o-animation: float 5s ease infinite; */
+  animation: bounceInUp var(--atAnimationDuration), float 5s ease 3s infinite;
 }
-
-/* .home__photo:hover {
-  animation: none;
-  transform: rotate(25deg);
-} */
 
 .home__presentation {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  animation: slideRight 1s ease-out;
+  animation: bounceInLeft var(--atAnimationDuration);
 }
 
 .home__presentation-main {
@@ -285,9 +281,6 @@ button {
 .home__down-arrow-icon {
   filter: var(--atFilterBlue);
   animation: bounce 2s infinite;
-  -webkit-animation: bounce 2s infinite;
-  -moz-animation: bounce 2s infinite;
-  -o-animation: bounce 2s infinite;
 }
 
 /* ABOUT */
@@ -298,18 +291,26 @@ button {
 .about__content {
   display: grid;
   align-items: center;
+  justify-content: center;
   gap: 3rem;
 }
 
 .about__photo {
-  width: 100%;
+  width: 80%;
   box-shadow: var(--atBoxShadow);
   border-radius: var(--atBorderRadius);
   transition: all 0.3s ease-in-out;
+  margin: auto;
 }
 
 .about__photo:hover {
   transform: scale(1.1);
+}
+
+.about__photo-animation {
+  animation-name: fadeInUp;
+  animation-duration: var(--atAnimationDuration);
+  animation-iteration-count: 1;
 }
 
 .about__description::first-line {
@@ -334,7 +335,133 @@ button {
   animation: blink 500ms linear infinite alternate;
 }
 
-/* MEDIA QUERY - TABLET */
+/* EXPERIENCES */
+.experiences {
+  padding: 7rem 0;
+}
+
+.experiences__content {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
+
+/* Timeline Container */
+
+/* Card container */
+.timeline__card {
+  position: relative;
+  max-width: 40rem;
+}
+
+/* setting padding based on even or odd */
+.timeline__card:nth-child(odd) {
+  padding: 3rem 0 3rem 3rem;
+}
+.timeline__card:nth-child(even) {
+  padding: 3rem 3rem 3rem 0;
+}
+/* Global ::before */
+.timeline__card::before {
+  content: '';
+  position: absolute;
+  width: 50%;
+  border: solid var(--atBlack);
+}
+
+/* Setting the border of top, bottom, left */
+.timeline__card:nth-child(odd)::before {
+  left: 0rem;
+  top: -0.45rem;
+  bottom: -0.45rem;
+  border-width: 5px 0 5px 5px;
+  border-radius: 50px 0 0 50px;
+}
+
+/* Setting the top and bottom to "-5px" because earlier it was out of a pixel in mobile devices */
+@media only screen and (max-width: 400px) {
+  .timeline__card:nth-child(odd)::before {
+    top: -0.5rem;
+    bottom: -0.5rem;
+  }
+}
+
+/* Setting the border of top, bottom, right */
+.timeline__card:nth-child(even)::before {
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-width: 5px 5px 5px 0;
+  border-radius: 0 50px 50px 0;
+}
+
+/* Removing the border if it is the first card */
+.timeline__card:first-child::before {
+  border-top: 0;
+  border-top-left-radius: 0;
+}
+
+/* Removing the border if it is the last card  and it's odd */
+.timeline__card:last-child:nth-child(odd)::before {
+  border-bottom: 0;
+  border-bottom-left-radius: 0;
+}
+
+/* Removing the border if it is the last card  and it's even */
+.timeline__card:last-child:nth-child(even)::before {
+  border-bottom: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* Information about the timeline */
+.timeline__card-info {
+  display: flex;
+  flex-direction: column;
+  background: var(--atGrey);
+  color: var(--atWhite);
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+/* Title of the card */
+.timeline__card-title {
+  color: var(--atBlue);
+  position: relative;
+  font-size: 2.8rem;
+}
+
+/* Timeline dot  */
+.timeline__card-title::before {
+  content: '';
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  background: var(--atWhite);
+  border-radius: 50%;
+  border: 3px solid var(--atBlack);
+}
+
+/* text right if the card is even  */
+.timeline__card:nth-child(even) > .timeline__card-info > .timeline__card-title {
+  text-align: right;
+}
+
+/* setting dot to the left if the card is odd */
+.timeline__card:nth-child(odd)
+  > .timeline__card-info
+  > .timeline__card-title::before {
+  left: -4.5rem;
+}
+
+/* setting dot to the right if the card is odd */
+.timeline__card:nth-child(even)
+  > .timeline__card-info
+  > .timeline__card-title::before {
+  right: -4.5rem;
+}
+
+/* MEDIA QUERY - TABLET - min 668px*/
 @media only screen and (min-width: 668px) {
   body {
     font-size: 1.6rem;
@@ -347,17 +474,13 @@ button {
   .about__content {
     grid-template-columns: repeat(2, 1fr);
   }
-}
 
-/* MEDIA QUERY - DESKTOP */
-
-@media only screen and (min-width: 1024px) {
-  a:hover {
-    padding-bottom: 0.5rem;
+  .experiences__content {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .section__content {
-    width: var(--atDesktopPageMinWidth);
+  .about__photo {
+    margin: initial;
   }
 
   .title {
@@ -366,6 +489,18 @@ button {
 
   .sub-title {
     text-align: initial;
+  }
+}
+
+/* MEDIA QUERY - DESKTOP - min 1024px*/
+
+@media only screen and (min-width: 1024px) {
+  a:hover {
+    padding-bottom: 0.5rem;
+  }
+
+  .section__content {
+    width: var(--atDesktopPageMinWidth);
   }
 
   /* NAVIGATION */
@@ -413,134 +548,5 @@ button {
     bottom: 0;
     left: 50%;
     transform: translate(-50%);
-  }
-
-  /* ABOUT */
-
-  .about__photo {
-    width: 80%;
-  }
-}
-
-/* ANIMATION */
-@keyframes opacityUp {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes slideTop {
-  0% {
-    transform: translateY(500px);
-  }
-  50% {
-    transform: translateY(-50px);
-  }
-  75% {
-    transform: translateY(0px);
-  }
-  87.5% {
-    transform: translateY(-5px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}
-
-@keyframes slideRight {
-  0% {
-    transform: translateX(-500px);
-  }
-  50% {
-    transform: translateX(50px);
-  }
-  75% {
-    transform: translateX(0px);
-  }
-  87.5% {
-    transform: translateX(5px);
-  }
-  100% {
-    transform: translateX(0px);
-  }
-}
-
-@keyframes float {
-  0% {
-    box-shadow: var(--atBoxShadow);
-    transform: translatey(0px);
-  }
-  50% {
-    box-shadow: 0 25px 15px 0px rgba(0, 0, 0, 0.2);
-    transform: translatey(-20px);
-  }
-  100% {
-    box-shadow: var(--atBoxShadow);
-    transform: translatey(0px);
-  }
-}
-
-@keyframes bounce {
-  0% {
-    transform: translatey(0px);
-  }
-  50% {
-    transform: translatey(-10px);
-  }
-  100% {
-    transform: translatey(0px);
-  }
-}
-
-@keyframes typing {
-  0% {
-    width: 0;
-  }
-  100% {
-    width: 100%;
-  }
-}
-
-/* The typewriter cursor effect */
-@keyframes blink-caret {
-  0%,
-  100% {
-    border-color: transparent;
-  }
-  50% {
-    border-color: var(--atOrange);
-  }
-}
-
-@-webkit-keyframes blink {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-    color: var(--atOrange);
-  }
-}
-
-@-moz-keyframes blink {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-    color: var(--atOrange);
-  }
-}
-
-@keyframes blink {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-    color: var(--atOrange);
   }
 }
