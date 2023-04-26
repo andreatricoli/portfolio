@@ -133,6 +133,7 @@ button {
   background-color: var(--atWhite);
   border: 2px solid var(--atWhite);
   font-weight: bold;
+  color: var(--atBlack);
 }
 
 .button-secondary:hover {
@@ -520,6 +521,12 @@ button {
 .cv {
   justify-self: center;
   text-align: center;
+  height: fit-content;
+  padding: 2rem;
+  width: 100%;
+  box-shadow: var(--atBoxShadow);
+  border-radius: var(--atBorderRadius);
+  /* animation: headShake 30s linear 3s infinite; */
 }
 
 .cv .title {
@@ -527,7 +534,7 @@ button {
 }
 
 .cv__download-icon {
-  filter: var(--atFilterBlack);
+  filter: var(--atFilterBlue);
   height: 4rem;
   display: block;
   margin: 2rem auto;

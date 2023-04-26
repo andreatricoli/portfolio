@@ -110,8 +110,9 @@ const observer = new IntersectionObserver(entries => {
     if (entry.isIntersecting) {
       if (entry.target.className.includes('js-download-cv')) {
         entry.target.classList.add('heart-beat-animation');
+      } else if (entry.target.className.includes('js-projects__items')) {
+        entry.target.classList.add('bounce-in-up-animation');
       } else {
-        // Add the animation class
         entry.target.classList.add('fade-in-up-animation');
       }
     }
@@ -124,3 +125,4 @@ timelineCards.forEach(timelineCard => {
 });
 observer.observe(document.querySelector('.about__photo'));
 observer.observe(document.querySelector('.js-download-cv'));
+observer.observe(document.querySelector('.js-projects__items'));
