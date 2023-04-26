@@ -17,13 +17,13 @@
       <div class="section__content navigation__content">
         <p class="navigation__logo">Andrea Tricoli</p>
         <div class="navigation__menu js-navigation__menu">
-          <a href="">Home</a>
-          <a href="">About</a>
-          <a href="">Experiences</a>
-          <a href="">CV</a>
-          <a href="">Projects</a>
-          <a href="">Contact</a>
-          <a href="">Follow</a>
+          <a class="navigation__item" href="">Home</a>
+          <a class="navigation__item" href="">About</a>
+          <a class="navigation__item" href="">Experiences</a>
+          <a class="navigation__item" href="">CV</a>
+          <a class="navigation__item" href="">Projects</a>
+          <a class="navigation__item" href="">Contact</a>
+          <a class="navigation__item" href="">Follow</a>
         </div>
         <img
           class="navigation__hamburger-menu-icon js-navigation__hamburger-menu-icon"
@@ -36,18 +36,21 @@
     <div class="section theme--black">
       <div class="section__content home__content">
         <div class="home__socials">
-          <img
-            class="home__socials-icon"
-            src="./assets/icons/at_instagram.svg"
-          />
-          <img
-            class="home__socials-icon"
-            src="./assets/icons/at_facebook.svg"
-          />
-          <img
-            class="home__socials-icon"
-            src="./assets/icons/at_linkedin.svg"
-          />
+          <a href="https://www.instagram.com/andrea.tricoli/" target="_blank">
+            <img
+              class="home__socials-icon"
+              src="./assets/icons/at_instagram.svg"
+          /></a>
+          <a href="https://www.facebook.com/andrea.tricoli91" target="_blank">
+            <img
+              class="home__socials-icon"
+              src="./assets/icons/at_facebook.svg"
+          /></a>
+          <a href="https://www.linkedin.com/in/andrea-tricoli" target="_blank">
+            <img
+              class="home__socials-icon"
+              src="./assets/icons/at_linkedin.svg"
+          /></a>
         </div>
         <div class="home-grid-layout">
           <img class="home__photo" src="./assets/images/at_profile_photo.png" />
@@ -58,8 +61,13 @@
             </p>
             <p class="home__presentation-role">a software developer.</p>
             <div class="home__presentation-buttons">
-              <button class="button-primary">Download CV</button>
-              <button class="button-secondary">Contact me</button>
+              <a
+                href="https://drive.google.com/file/d/1JAlad4amD5jHaxfiFrPo3grIQaNUVJ67/view"
+                target="_blank"
+                class="btn button-primary--outline"
+                >Download CV</a
+              >
+              <button class="button-secondary--outline">Contact me</button>
             </div>
           </div>
         </div>
@@ -94,9 +102,14 @@
             to attend the faculty of Computer Engineering. There I tried many
             experiences and met fantastic people.<br /><br />
             After completing my studies, I moved to Milan, where I started
-            working as a Web Developer. Aside from my tech enthusiasm I like
-            traveling and looking for new adventures, practicing sports, taking
-            pictures of nature and challenging myself with new experiences.
+            working as a Web Developer.
+            <br /><br />
+            Today I'm a full remote developer with 5+ years of experiences in
+            real Projects.
+            <br /><br />
+            Aside from my tech enthusiasm I like traveling and looking for new
+            adventures, practicing sports, taking pictures of nature and
+            challenging myself with new experiences.
           </p>
           <pre id="typewriter">
 <span class="var-highlight">var</span> aboutMe = {
@@ -116,64 +129,119 @@
           <p class="title">My Experiences.</p>
           <div class="timeline__card">
             <div class="timeline__card-info">
-              <h3 class="timeline__card-title">Back-end Developer</h3>
+              <p class="timeline__card-title">
+                Consultant at ABERCROMBIE & KENT
+              </p>
+
               <p>(Mar 2023 - Today)</p>
-              <p>ABERCROMBIE & KENT</p>
+              <p>Back-end Developer</p>
+              <p>Remote</p>
             </div>
           </div>
           <div class="timeline__card">
             <div class="timeline__card-info">
-              <h3 class="timeline__card-title">Front-end Developer</h3>
+              <p class="timeline__card-title">TXT GROUP R&D PROJECT</p>
               <p>(Gen 2023 - Feb 2023)</p>
-              <p>TXT GROUP R&D PROJECT</p>
+              <p>Front-end Developer</p>
+              <p>Remote</p>
             </div>
           </div>
           <div class="timeline__card">
             <div class="timeline__card-info">
-              <h3 class="timeline__card-title">Front-end Developer</h3>
+              <p class="timeline__card-title">Consultant at BANCO BPM</p>
               <p>(Oct 2022 - Dec 2022)</p>
-              <p>BANCO BPM</p>
+              <p>Front-end Developer</p>
+              <p>Remote</p>
             </div>
           </div>
           <div class="timeline__card">
             <div class="timeline__card-info">
-              <h3 class="timeline__card-title">Front-end Developer</h3>
+              <p class="timeline__card-title">
+                Consultant at DOCOMO DIGITAL (BANGO)
+              </p>
               <p>(Jul 2019 - Sep 2022)</p>
-              <p>DOCOMO DIGITAL ITALY</p>
+              <p>Front-end Developer/p></p>
+              <p>Remote</p>
             </div>
           </div>
           <div class="timeline__card">
             <div class="timeline__card-info">
-              <h3 class="timeline__card-title">Back-end Developer</h3>
+              <p class="timeline__card-title">Consultant at ING BANK</p>
               <p>(Dec 2018 - Jun 2019)</p>
-              <p>ING BANK</p>
+              <p>Back-end Developer</p>
+              <p>On site - Milan(MI)</p>
             </div>
           </div>
           <div class="timeline__card">
             <div class="timeline__card-info">
-              <h3 class="timeline__card-title">Front-end Developer</h3>
+              <p class="timeline__card-title">Consultant at UNICREDIT</p>
               <p>(Apr 2018 - Nov 2018)</p>
-              <p>UNICREDIT</p>
+              <p>Front-end Developer</p>
+              <p>On site - Milan(MI)</p>
             </div>
           </div>
           <div class="timeline__card">
             <div class="timeline__card-info">
-              <h3 class="timeline__card-title">Trainee intern</h3>
+              <p class="timeline__card-title">ADVANCIA TECHNOLOGY</p>
               <p>(Feb 2018 - Mar 2018)</p>
-              <p>ADVANCIA TECHNOLOGY</p>
+              <p>Trainee intern</p>
+              <p>On site - Viareggio(LU)</p>
             </div>
           </div>
         </div>
         <!-- CV -->
-        <div class="timeline">
+        <div class="cv">
           <p class="title">Find out more.</p>
           <p>Look at my experiences and all my skills</p>
           <img class="cv__download-icon" src="./assets/icons/at_download.svg" />
-          <button class="button-secondary">DOWNLOAD MY CV</button>
+          <a
+            href="https://drive.google.com/file/d/1JAlad4amD5jHaxfiFrPo3grIQaNUVJ67/view"
+            target="_blank"
+            class="btn button-secondary js-download-cv"
+          >
+            DOWNLOAD MY CV
+          </a>
         </div>
       </div>
     </div>
 
+    <!-- PROJECTS -->
+    <div class="section theme--white">
+      <div class="section__content projects__content">
+        <p class="title">Projects.</p>
+        <p>Look at my projects, from theory to practice.</p>
+        <div class="projects__items">
+          <div>
+            <a
+              class="projects__item"
+              href="https://drive.google.com/drive/folders/1agwJEs2aj7mxIUcRhs2TH4G1JhHkoAi1"
+              target="_blank"
+            >
+              <img
+                class="projects__item"
+                src="./assets/images/at_coronavirus_app.png"
+              />
+            </a>
+            <p class="projects__item-name">
+              Coronavirus App (Android) - No longer working
+            </p>
+          </div>
+          <div>
+            <a
+              class="projects__item"
+              href="https://andreatricoli.github.io/dama/"
+              target="_blank"
+            >
+              <img
+                class="projects__item"
+                src="./assets/images/at_dama_online_app.png"
+              />
+            </a>
+            <p class="projects__item-name">Dama online</p>
+          </div>
+        </div>
+      </div>
+    </div>
     <script src="./index.js"></script>
   </body>
 </html>

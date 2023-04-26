@@ -108,8 +108,12 @@ const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     // If the element is visible
     if (entry.isIntersecting) {
-      // Add the animation class
-      entry.target.classList.add('fade-in-up-animation');
+      if (entry.target.className.includes('js-download-cv')) {
+        entry.target.classList.add('heart-beat-animation');
+      } else {
+        // Add the animation class
+        entry.target.classList.add('fade-in-up-animation');
+      }
     }
   });
 });
@@ -119,3 +123,4 @@ timelineCards.forEach(timelineCard => {
   observer.observe(timelineCard);
 });
 observer.observe(document.querySelector('.about__photo'));
+observer.observe(document.querySelector('.js-download-cv'));

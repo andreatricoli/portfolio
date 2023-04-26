@@ -54,11 +54,6 @@ html {
 
 a {
   text-decoration: none;
-  color: var(--atWhite);
-}
-
-a:hover {
-  color: var(--atBlue);
 }
 
 body {
@@ -72,6 +67,27 @@ body {
 }
 
 /* BUTTONS */
+.btn {
+  background-color: transparent;
+  cursor: pointer;
+  color: inherit;
+  font-family: inherit;
+  padding: 1rem 2rem;
+  outline: 0;
+  border-radius: var(--atBorderRadius);
+  box-shadow: var(--atBoxShadow);
+  transition: all 0.3s ease-in-out;
+  font-size: inherit;
+  letter-spacing: normal;
+  word-spacing: normal;
+  line-height: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: center;
+}
+
 button {
   background-color: transparent;
   cursor: pointer;
@@ -85,21 +101,42 @@ button {
   font-size: inherit;
 }
 
-.button-primary {
+.button-primary--outline {
   border: 2px solid var(--atBlue);
 }
 
-.button-primary:hover {
+.button-primary--outline:hover {
   background-color: var(--atBlue);
 }
 
-.button-secondary {
+.button-secondary--outline {
   border: 2px solid var(--atWhite);
 }
 
-.button-secondary:hover {
+.button-secondary--outline:hover {
   background-color: var(--atWhite);
   color: var(--atBlack);
+}
+
+.button-primary {
+  background-color: var(--atBlue);
+  border: 2px solid var(--atBlue);
+  color: var(--atBlack);
+  font-weight: bold;
+}
+
+.button-primary:hover {
+  transform: scale(1.1);
+}
+
+.button-secondary {
+  background-color: var(--atWhite);
+  border: 2px solid var(--atWhite);
+  font-weight: bold;
+}
+
+.button-secondary:hover {
+  transform: scale(1.1);
 }
 
 /* THEME */
@@ -197,6 +234,15 @@ button {
   display: none;
 }
 
+.navigation__item {
+  text-decoration: none;
+  color: var(--atWhite);
+}
+
+.navigation__item:hover {
+  color: var(--atBlue);
+}
+
 .js-navigation__menu--open {
   display: flex;
   flex-direction: column;
@@ -231,6 +277,10 @@ button {
   height: 4rem;
   cursor: pointer;
   margin: 1rem;
+}
+
+.home__socials-icon:hover {
+  transform: scale(1.1);
 }
 
 .home-grid-layout {
@@ -382,14 +432,6 @@ button {
   border-radius: 50px 0 0 50px;
 }
 
-/* CV */
-
-.cv__download-icon {
-  filter: var(--atFilterBlack);
-  height: 4rem;
-  display: block;
-}
-
 /* Setting the top and bottom to "-5px" because earlier it was out of a pixel in mobile devices */
 @media only screen and (max-width: 400px) {
   .timeline__card:nth-child(odd)::before {
@@ -433,13 +475,14 @@ button {
   color: var(--atWhite);
   border-radius: 10px;
   padding: 1rem;
+  box-shadow: var(--atBoxShadow);
 }
 
 /* Title of the card */
 .timeline__card-title {
   color: var(--atBlue);
   position: relative;
-  font-size: 2.8rem;
+  font-weight: bold;
 }
 
 /* Timeline dot  */
@@ -472,6 +515,56 @@ button {
   right: -4.5rem;
 }
 
+/* CV */
+
+.cv {
+  justify-self: center;
+  text-align: center;
+}
+
+.cv .title {
+  text-align: center;
+}
+
+.cv__download-icon {
+  filter: var(--atFilterBlack);
+  height: 4rem;
+  display: block;
+  margin: 2rem auto;
+}
+
+/* PROJECTS */
+
+.projects__content {
+  text-align: center;
+}
+
+.projects__content .title {
+  text-align: center;
+}
+
+.projects__items {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  margin: 7rem 0 0 0;
+  gap: 5rem;
+}
+
+.projects__item {
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.projects__item:hover {
+  transform: scale(1.1);
+}
+
+.projects__item-name {
+  color: var(--atGrey);
+  margin: 1rem;
+}
+
 /* MEDIA QUERY - TABLET - min 668px*/
 @media only screen and (min-width: 668px) {
   body {
@@ -494,11 +587,19 @@ button {
     order: -1;
   }
 
+  .home__socials-icon {
+    margin: 1rem 1rem 1rem 0;
+  }
+
   .about__content {
     grid-template-columns: repeat(2, 1fr);
   }
 
   .experiences__content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .projects__items {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -518,7 +619,7 @@ button {
 /* MEDIA QUERY - DESKTOP - min 1024px*/
 
 @media only screen and (min-width: 1024px) {
-  a:hover {
+  .navigation__item:hover {
     padding-bottom: 0.5rem;
   }
 
