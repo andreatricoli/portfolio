@@ -1,20 +1,41 @@
+function lockScroll() {
+  // var xPos = window.scrollX;
+  // var yPos = window.scrollY;
+  // window.onscroll = () => window.scroll(xPos, yPos);
+  document.body.style.overflow = 'hidden';
+  document.body.style.userSelect = 'none';
+  // console.log('locked');
+}
+
+function unlockScroll() {
+  document.body.style.overflow = 'auto';
+  document.body.style.userSelect = 'auto';
+  // window.onscroll = '';
+}
+
 //NAVIGATOR MENU
 
 const navigationHamburgerMenuIcon = document.querySelector(
   '.js-navigation__hamburger-menu-icon'
 );
 const navigationMenu = document.querySelector('.js-navigation__menu');
+const navigationMenuItems = document.querySelectorAll(
+  '.js-navigation__menu .navigation__item'
+);
 
 let desktopMediaQuery = window.matchMedia('(min-width: 1024px');
 
 const openNavigationMenu = () => {
+  console.log('opened');
   navigationHamburgerMenuIcon.src = './assets/icons/at_close.svg';
   navigationMenu.classList.add('js-navigation__menu--open');
+  lockScroll();
 };
 
 const closeNavigationMenu = () => {
   navigationHamburgerMenuIcon.src = './assets/icons/at_hamburger_menu.svg';
   navigationMenu.classList.remove('js-navigation__menu--open');
+  unlockScroll();
 };
 
 const desktopMediaQueryHandler = () => {
@@ -33,74 +54,11 @@ navigationHamburgerMenuIcon.addEventListener('click', e => {
   }
 });
 
-// TYPE WRITER
-// function setupTypewriter(t) {
-//   var HTML = t.innerHTML;
-
-//   t.innerHTML = '';
-
-//   var cursorPosition = 0,
-//     tag = '',
-//     writingTag = false,
-//     tagOpen = false,
-//     typeSpeed = 100,
-//     tempTypeSpeed = 0;
-
-//   var type = function () {
-//     if (writingTag === true) {
-//       tag += HTML[cursorPosition];
-//     }
-
-//     if (HTML[cursorPosition] === '<') {
-//       tempTypeSpeed = 0;
-//       if (tagOpen) {
-//         tagOpen = false;
-//         writingTag = true;
-//       } else {
-//         tag = '';
-//         tagOpen = true;
-//         writingTag = true;
-//         tag += HTML[cursorPosition];
-//       }
-//     }
-//     if (!writingTag && tagOpen) {
-//       tag.innerHTML += HTML[cursorPosition];
-//     }
-//     if (!writingTag && !tagOpen) {
-//       if (HTML[cursorPosition] === ' ') {
-//         tempTypeSpeed = 0;
-//       } else {
-//         tempTypeSpeed = Math.random() * typeSpeed + 50;
-//       }
-//       t.innerHTML += HTML[cursorPosition];
-//     }
-//     if (writingTag === true && HTML[cursorPosition] === '>') {
-//       tempTypeSpeed = Math.random() * typeSpeed + 50;
-//       writingTag = false;
-//       if (tagOpen) {
-//         var newSpan = document.createElement('span');
-//         t.appendChild(newSpan);
-//         newSpan.innerHTML = tag;
-//         tag = newSpan.firstChild;
-//       }
-//     }
-
-//     cursorPosition += 1;
-//     if (cursorPosition < HTML.length - 1) {
-//       setTimeout(type, tempTypeSpeed);
-//     }
-//   };
-
-//   return {
-//     type: type,
-//   };
-// }
-
-// var typer = document.getElementById('typewriter');
-
-// typewriter = setupTypewriter(typewriter);
-
-// typewriter.type();
+navigationMenuItems.forEach(el => {
+  el.addEventListener('click', e => {
+    closeNavigationMenu();
+  });
+});
 
 //INTERSECTION OBSERVER
 const observer = new IntersectionObserver(entries => {
