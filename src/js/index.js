@@ -27,13 +27,13 @@ let desktopMediaQuery = window.matchMedia('(min-width: 1024px');
 
 const openNavigationMenu = () => {
   console.log('opened');
-  navigationHamburgerMenuIcon.src = './assets/icons/at_close.svg';
+  navigationHamburgerMenuIcon.src = '/src/assets/icons/at_close.svg';
   navigationMenu.classList.add('js-navigation__menu--open');
   lockScroll();
 };
 
 const closeNavigationMenu = () => {
-  navigationHamburgerMenuIcon.src = './assets/icons/at_hamburger_menu.svg';
+  navigationHamburgerMenuIcon.src = '/src/assets/icons/at_hamburger_menu.svg';
   navigationMenu.classList.remove('js-navigation__menu--open');
   unlockScroll();
 };
