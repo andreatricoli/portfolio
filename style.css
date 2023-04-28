@@ -55,6 +55,11 @@ html {
 
 a {
   text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+img {
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -100,6 +105,7 @@ button {
   box-shadow: var(--atBoxShadow);
   transition: all 0.3s ease-in-out;
   font-size: inherit;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .button-primary--outline {
@@ -358,7 +364,7 @@ button {
 
 .about__photo {
   width: 80%;
-  box-shadow: var(--atPaperBoxShadow);
+  box-shadow: var(--atBoxShadow);
   border-radius: var(--atBorderRadius);
   transition: all 0.3s ease-in-out;
   margin: auto;
@@ -529,6 +535,7 @@ button {
   width: 100%;
   box-shadow: var(--atBoxShadow);
   border-radius: var(--atBorderRadius);
+  scroll-margin-top: 14rem;
   /* animation: headShake 30s linear 3s infinite; */
 }
 
@@ -606,7 +613,12 @@ button {
   -moz-transition: 0.4s;
   transition: 0.4s;
   cursor: pointer;
+  animation: headShakeCustom 5s 3s infinite;
 }
+.animated-mail:hover {
+  animation: none;
+}
+
 .animated-mail .body {
   position: absolute;
   bottom: 0;
@@ -614,7 +626,7 @@ button {
   height: 0;
   border-style: solid;
   border-width: 0 0 100px 200px;
-  border-color: transparent transparent #e95f55 transparent;
+  border-color: transparent transparent #66ced3 transparent;
   z-index: 2;
 }
 .animated-mail .top-fold {
@@ -630,7 +642,7 @@ button {
   -moz-transition: transform 0.4s 0.4s, z-index 0.2s 0.4s;
   transform-origin: 50% 0%;
   transition: transform 0.4s 0.4s, z-index 0.2s 0.4s;
-  border-color: #cf4a43 transparent transparent transparent;
+  border-color: #00adb5 transparent transparent transparent;
   z-index: 2;
 }
 .animated-mail .back-fold {
@@ -638,7 +650,7 @@ button {
   bottom: 0;
   width: 200px;
   height: 100px;
-  background: #cf4a43;
+  background: #00adb5;
   z-index: 0;
 }
 .animated-mail .left-fold {
@@ -648,7 +660,7 @@ button {
   height: 0;
   border-style: solid;
   border-width: 50px 0 50px 100px;
-  border-color: transparent transparent transparent #e15349;
+  border-color: transparent transparent transparent #33bdc4;
   z-index: 2;
 }
 .animated-mail .letter {
@@ -669,8 +681,8 @@ button {
   width: 100%;
   background: repeating-linear-gradient(
     -45deg,
-    #cb5a5e,
-    #cb5a5e 8px,
+    var(--atBlack),
+    var(--atBlack) 8px,
     transparent 8px,
     transparent 18px
   );
@@ -680,14 +692,14 @@ button {
   margin-left: 5px;
   height: 10px;
   width: 40%;
-  background: #cb5a5e;
+  background: var(--atBlack);
 }
 .animated-mail .letter .letter-context {
   margin-top: 10px;
   margin-left: 5px;
   height: 10px;
   width: 20%;
-  background: #cb5a5e;
+  background: var(--atBlack);
 }
 .animated-mail .letter .letter-stamp {
   margin-top: 30px;
@@ -695,7 +707,7 @@ button {
   border-radius: 100%;
   height: 30px;
   width: 30px;
-  background: #cb5a5e;
+  background: var(--atBlack);
   opacity: 0.3;
 }
 
@@ -765,7 +777,7 @@ button {
   }
 
   .home__socials {
-    justify-self: start;
+    justify-self: end;
   }
 
   .home-grid-layout {
