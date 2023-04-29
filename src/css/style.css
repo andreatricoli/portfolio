@@ -26,7 +26,7 @@
 
   /* LAYOUT VARIABLES */
   --atMobilePageMinWidth: calc(100% - 30px);
-  --atTabletPageMinWidth: 668px;
+  --atTabletPageMinWidth: 768px;
   --atDesktopPageMinWidth: 1024px;
 
   /* ANIMATION VARIABLES*/
@@ -280,10 +280,10 @@ button {
     'home-photo'
     'home-presentation'
     'home-footer';
-  gap: 5rem;
+  gap: 3.5rem;
 
   /* grid-template-rows: [row1-start] min-content [row1-end] auto [third-line] min-content[last-line]; */
-  /* height: calc(100vh - 14rem); */
+  height: calc(100vh - 14rem);
   grid-template-rows: min-content min-content min-content;
   /* align-items: center; */
   /* justify-items: center; */
@@ -298,9 +298,9 @@ button {
 
 .home__socials-icon {
   filter: var(--atFilterWhite);
-  height: 4rem;
+  height: 3rem;
   cursor: pointer;
-  margin: 1rem;
+  margin: 0rem 1rem 1rem 1rem;
 }
 
 .home__socials-icon:hover {
@@ -366,11 +366,13 @@ button {
   align-items: center;
   gap: 2rem;
   grid-area: home-footer;
+  align-self: end;
 }
 
 .home__down-arrow-icon {
   filter: var(--atFilterBlue);
   animation: bounce 3s infinite;
+  height: 4rem;
 }
 
 /* ABOUT */
@@ -786,6 +788,17 @@ button {
   margin: 5rem 0;
 }
 
+@media only screen and (max-height: 838px) {
+  .home__content {
+    gap: 1.5rem;
+    height: initial;
+  }
+
+  .home__photo {
+    height: 22.5rem;
+  }
+}
+
 /* MEDIA QUERY - TABLET - min 668px*/
 @media only screen and (min-width: 668px) {
   body {
@@ -801,6 +814,7 @@ button {
       'home-socials home-socials'
       'home-presentation home-photo'
       'home-footer home-footer';
+    height: initial;
   }
 
   .home__socials {
@@ -816,7 +830,7 @@ button {
   }
 
   .home__socials-icon {
-    margin: 1rem 1rem 1rem 0;
+    margin: 0rem 0rem 1rem 1rem;
   }
 
   .about__content {
