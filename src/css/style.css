@@ -283,7 +283,7 @@ button {
   gap: 2rem;
 
   /* grid-template-rows: [row1-start] min-content [row1-end] auto [third-line] min-content[last-line]; */
-  height: calc(100vh - 10rem);
+  height: calc(100vh - 10rem - 5.7rem);
   grid-template-rows: min-content min-content min-content;
   /* align-items: center; */
   /* justify-items: center; */
